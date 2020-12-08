@@ -1,5 +1,9 @@
 {
   "extends": "rallycoding",
+  "plugins": [
+    "react",
+    "react-native"
+  ],
   "rules": {
     "arrow-body-style": 0,
     "camelcase": 0,
@@ -9,6 +13,7 @@
     "global-require": 0,
     "no-underscore-dangle": 0,
     "import/no-unresolved": 0,
-    "import/no-extraneous-dependencies": 0
+    "import/no-extraneous-dependencies": 0,
+    "react/require-extension": "off"
   }
 }
