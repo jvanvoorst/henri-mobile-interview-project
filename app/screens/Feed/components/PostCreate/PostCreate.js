@@ -12,6 +12,12 @@ export default function PostCreate() {
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
 
+    const handleCreatePost = () => {
+        dispatch(createPost({ title, body }));
+        setTitle('');
+        setBody('');
+    }
+
     return (
         <View style={Styles.container}>
             <TextInput
@@ -28,7 +34,7 @@ export default function PostCreate() {
             />
             <TouchableOpacity
                 disabled={title.length < 3 || body.length < 3}
-                onPress={() => dispatch(createPost({ title, body }))}
+                onPress={() => handleCreatePost()}
             >
                 <Text style={Styles.createButton}>Create</Text>
             </TouchableOpacity>
