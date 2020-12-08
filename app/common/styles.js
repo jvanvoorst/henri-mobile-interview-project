@@ -2,7 +2,7 @@ import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
     screenContainer: {
-        paddingTop: 50,
+        marginTop: 50,
         paddingLeft: 10,
         paddingRight: 10,
     },

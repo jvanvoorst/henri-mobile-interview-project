@@ -31,3 +31,10 @@ export function getComments() {
 export function deletePost(postId) {
     return axios.delete(`https://jsonplaceholder.typicode.com/posts/${postId}`);
 }
+
+export function createPost(post) {
+    return axios.post(
+        'https://jsonplaceholder.typicode.com/posts',
+        post
+    );
+}

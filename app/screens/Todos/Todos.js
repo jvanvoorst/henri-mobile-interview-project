@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { Text, ScrollView } from 'react-native';
 
-import Loading from '../../components/loading/Loading';
-import { getTodos } from '../../services/api.service';
-import TodoItem from '../../components/TodoItem/TodosItem';
+import * as API from '../../services/api.service';
+import Loading from '../../common/components/Loading';
+import TodosItem from './components/TodosItem';
 
 import CommonStyles from '../../common/styles';
 
@@ -16,7 +16,14 @@ export default function Todos() {
         (async () => {
             try {
                 setStatus('loading');
-                const _todos = await getTodos();
+
+                let _todos;
+                try {
+                    _todos = await API.getTodos();
+                } catch (error) {
+                    return console.error('There was an error fetchingTodos: ', error.message)
+                }
+
                 setTodos(_todos.data);
                 setStatus('idle');
             } catch (error) {
@@ -41,7 +48,7 @@ export default function Todos() {
         <ScrollView style={CommonStyles.screenContainer}>
             <Text style={CommonStyles.headerText}>Users</Text>
             {todos.map((todo) => (
-                <TodoItem
+                <TodosItem
                     key={todo.id}
                     todo={todo}
                     toggleCompleted={_toggleCompleted}

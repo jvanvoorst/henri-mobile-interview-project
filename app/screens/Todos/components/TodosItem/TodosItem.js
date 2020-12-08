@@ -3,9 +3,9 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 
 import Styles from './styles';
-import CommonStyles from '../../common/styles';
+import CommonStyles from '../../../../common/styles';
 
-export default function TodoItem({ todo, toggleCompleted }) {
+export default function TodosItem({ todo, toggleCompleted }) {
     return (
         <View style={CommonStyles.itemContainer}>
             <TouchableOpacity onPress={() => toggleCompleted(todo)}>

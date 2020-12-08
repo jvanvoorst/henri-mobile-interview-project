@@ -4,8 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import { usersLoading, usersLoaded, selectUserIds } from './Users.slice';
 import { getAvatars, getUsers } from '../../services/api.service';
-import UserItem from '../../components/UserItem';
-import Loading from '../../components/loading/Loading';
+import UserItem from './components/UserItem';
+import Loading from '../../common/components/Loading';
 
 import CommonStyles from '../../common/styles';
 
@@ -36,7 +36,7 @@ export default function Users() {
 
     return (
         <ScrollView style={CommonStyles.screenContainer}>
-            <Text style={CommonStyles.headerText}>Users</Text>
+            <Text style={CommonStyles.headerText}>Todos</Text>
             {userIds.map((id) => (
                 <UserItem key={id} id={id} />
             ))}

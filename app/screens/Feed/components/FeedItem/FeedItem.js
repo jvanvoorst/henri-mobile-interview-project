@@ -6,11 +6,11 @@ import {
     selectPostById,
     selectCommentsByPostId,
     deletePost,
-} from '../../screens/Feed/Feed.slice';
-import { selectUserById } from '../../screens/Users/Users.slice';
+} from '../../Feed.slice';
+import { selectUserById } from '../../../Users/Users.slice';
 
 import Styles from './styles';
-import CommonStyles from '../../common/styles';
+import CommonStyles from '../../../../common/styles';
 
 export default function FeedItem({ postId }) {
     const dispatch = useDispatch();

@@ -1,11 +1,12 @@
 import React, { useEffect } from 'react';
-import { Text, ScrollView } from 'react-native';
+import { Text, ScrollView, View } from 'react-native';
 import { useSelector, useDispatch } from 'react-redux';
 
-import Loading from '../../components/loading/Loading';
-import { fetchFeed, selectPostIds } from './Feed.slice';
-import FeedItem from '../../components/FeedItem';
+import Loading from '../../common/components/Loading/Loading';
+import FeedItem from './components/FeedItem';
+import PostCreate from './components/PostCreate';
 
+import { fetchFeed, selectPostIds } from './Feed.slice';
 import CommonStyles from '../../common/styles';
 
 export default function Feed() {
@@ -23,11 +24,14 @@ export default function Feed() {
     }
 
     return (
-        <ScrollView style={CommonStyles.screenContainer}>
-            <Text style={CommonStyles.headerText}>Feed</Text>
-            {postIds.map((postId) => (
-                <FeedItem key={postId} postId={postId} />
-            ))}
-        </ScrollView>
+        <View style={CommonStyles.screenContainer}>
+            <PostCreate />
+            <ScrollView>
+                <Text style={CommonStyles.headerText}>Feed</Text>
+                {postIds.map((postId) => (
+                    <FeedItem key={postId} postId={postId} />
+                ))}
+            </ScrollView>
+        </View>
     );
 }
